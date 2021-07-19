@@ -1,0 +1,18 @@
+﻿@model Worker
+
+@{
+    ViewData["PositionName"] = "Delete Worker";
+}
+<!--delete worker view-->
+<h1 class="display-4">Delete Worker</h1>
+<ul class="list-group mb-2">
+    <li class="list-group-item">
+        @Model.FullName
+    </li>
+</ul>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="WorkerId" />
+    <button type="submit" class="btn btn-dark">Delete</button>
+    <a asp-action="Index" asp-controller="Worker" class="btn btn-outline-dark">Cancel</a>
+</form>

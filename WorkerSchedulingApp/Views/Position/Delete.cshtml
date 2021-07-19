@@ -1,0 +1,25 @@
+﻿@model Position
+
+@{
+    ViewData["PositionName"] = "Delete Position";
+}
+<!--delete position view-->
+<h1 class="display-4">Delete </h1>
+<ul class="list-group mb-2">
+    <li class="list-group-item">
+        <h4>@Model?.PositionName @Model?.HoursPerShift</h4>
+    </li>
+    <li class="list-group-item">
+        Worker: @Model?.Worker.FullName
+    </li>
+    <li class="list-group-item">
+        Day and MilitaryTime: @Model?.Day.Name @Model?.MilitaryTime
+    </li>
+</ul>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="PositionId" />
+    <button type="submit" class="btn btn-dark">Delete</button>
+    <a asp-action="Index" asp-controller="Home" asp-route-id="@ViewBag.DayId"
+       class="btn btn-outline-dark">Cancel</a>
+</form>
